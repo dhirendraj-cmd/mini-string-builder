@@ -10,7 +10,7 @@ typedef struct {
 } StringBldr;
 
 // create string bldr func which will return new stringbld pointer
-StringBldr* create_str(size_t initial_capacity);
+StringBldr* create_str(size_t initialCapacity);
 
 
 // append new string value in exisiting string
