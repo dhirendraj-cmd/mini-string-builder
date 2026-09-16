@@ -63,10 +63,11 @@ void append_str(StringBldr *sb, const char *str){
 
     // get current text length
     textlength = get_length(str);
-    printf("Length of current text is: %d", textlength);
-
+    printf("Length of current text is: %zu\n", textlength);
+    
     // create required size
     neededSize = sb->lengthTracker + textlength + 1;
+    printf("Needed Size is: %zu\n", neededSize);
 
 
     // check required size is more than capacitytracker
@@ -93,6 +94,23 @@ void append_str(StringBldr *sb, const char *str){
     strcpy(sb->buffermemo + sb->lengthTracker, str);
     sb->lengthTracker+=textlength;
 
-    
+    printf("Total Capacity is %zu\n", sb->capacityTracker);
+
+}
+
+const char* get_string(const StringBldr *sb){
+    if(sb){
+        return sb->buffermemo;
+    } else {
+        return "";
+    }
+}
+
+
+void free_stringbldr(StringBldr *sb){
+    if(sb){
+        free(sb->buffermemo);
+        free(sb);
+    }
 }
 
