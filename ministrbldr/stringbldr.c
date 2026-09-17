@@ -22,7 +22,7 @@ StringBldr* create_str(size_t initialCapacity){
     }
 
     // set buffer to size of inital capacity
-    sb->buffermemo = malloc(initialCapacity);
+    sb->buffermemo = malloc(initialCapacity * sizeof(size_t));
 
     // if not buffer then free sb
     if(!sb->buffermemo){
@@ -80,7 +80,7 @@ void append_str(StringBldr *sb, const char *str){
         }
 
         // finally reallocate new memory
-        char *newBuffmemo = realloc(sb->buffermemo, sb->capacityTracker);
+        char *newBuffmemo = realloc(sb->buffermemo, sb->capacityTracker * sizeof(char));
 
         if (!newBuffmemo){
             return;
