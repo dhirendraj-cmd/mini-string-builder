@@ -10,6 +10,7 @@ StringBldr* create_str(size_t initialCapacity){
     
     // check if capacity is 0
     if(initialCapacity == 0){
+        printf("GIVEN SIZE IS 0, SO ALLOCATING 16BYTES BY DEFAULT\n\n");
         initialCapacity = 16;
     }
     
@@ -22,7 +23,7 @@ StringBldr* create_str(size_t initialCapacity){
     }
 
     // set buffer to size of inital capacity
-    sb->buffermemo = malloc(initialCapacity * sizeof(size_t));
+    sb->buffermemo = malloc(initialCapacity * sizeof(char));
 
     // if not buffer then free sb
     if(!sb->buffermemo){
